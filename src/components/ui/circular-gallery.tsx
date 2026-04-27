@@ -338,6 +338,7 @@ class App {
   isInteracting: boolean = false;
   interactTimer?: ReturnType<typeof setTimeout>;
   touchStarted: boolean = false;
+  mouseStarted: boolean = false;
   startY: number = 0;
   directionLocked: "h" | "v" | null = null;
   onItemClick?: (index: number) => void;
@@ -426,7 +427,8 @@ class App {
   }
 
   onTouchDown(e: MouseEvent | TouchEvent) {
-    this.touchStarted = true;
+    if ("touches" in e) this.touchStarted = true;
+    else this.mouseStarted = true;
     clearTimeout(this.interactTimer);
     this.scroll.position = this.scroll.current;
     this.start = "touches" in e ? e.touches[0].clientX : (e as MouseEvent).clientX;
@@ -453,8 +455,11 @@ class App {
   }
 
   onTouchUp(e: MouseEvent | TouchEvent) {
-    if (!this.touchStarted) return;
-    this.touchStarted = false;
+    const isTouch = "changedTouches" in e;
+    if (isTouch && !this.touchStarted) return;
+    if (!isTouch && !this.mouseStarted) return;
+    if (isTouch) this.touchStarted = false;
+    else this.mouseStarted = false;
     const endX = "changedTouches" in e
       ? (e as TouchEvent).changedTouches[0].clientX
       : (e as MouseEvent).clientX;

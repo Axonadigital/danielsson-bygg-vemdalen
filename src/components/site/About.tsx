@@ -58,11 +58,6 @@ export const About = () => (
             >
               Begär offert
             </a>
-            <img
-              src="/projects/kontrollansvarig.png.png"
-              alt="Certifierad kontrollansvarig"
-              className="h-12 w-auto object-contain opacity-80"
-            />
           </div>
         </div>
 

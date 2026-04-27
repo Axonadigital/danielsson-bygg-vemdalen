@@ -1,5 +1,5 @@
-import { useCallback, useRef, useState } from "react";
-import { ChevronLeft, ChevronRight, X } from "lucide-react";
+import { useCallback, useEffect, useRef, useState } from "react";
+import { ChevronLeft, ChevronRight, Instagram, X } from "lucide-react";
 import { CircularGallery, type GalleryAPI, type GalleryItem } from "@/components/ui/circular-gallery";
 import { BeforeAfter } from "@/components/site/BeforeAfter";
 
@@ -182,6 +182,13 @@ const GalleryModal = ({ project, onClose }: ModalProps) => {
 export const Projects = () => {
   const [selected, setSelected] = useState<Project | null>(null);
   const apiRef = useRef<GalleryAPI | null>(null);
+  const [bend, setBend] = useState(() => window.innerWidth < 768 ? 1 : 3);
+
+  useEffect(() => {
+    const handler = () => setBend(window.innerWidth < 768 ? 1 : 3);
+    window.addEventListener("resize", handler);
+    return () => window.removeEventListener("resize", handler);
+  }, []);
 
   const handleInit = useCallback((api: GalleryAPI) => {
     apiRef.current = api;
@@ -209,9 +216,10 @@ export const Projects = () => {
               href="https://www.instagram.com/danielssonsbygg/"
               target="_blank"
               rel="noreferrer noopener"
-              className="text-sm uppercase tracking-wider text-accent hover:text-accent/80 transition-smooth border-b border-accent pb-1 self-start"
+              className="flex items-center gap-2 text-sm text-accent hover:text-accent/80 transition-smooth self-start"
             >
-              Följ på Instagram →
+              <Instagram size={18} />
+              Se mer på vår Instagram
             </a>
           </div>
         </div>
@@ -219,7 +227,7 @@ export const Projects = () => {
         <div className="relative" style={{ height: "520px" }}>
           <CircularGallery
             items={galleryItems}
-            bend={3}
+            bend={bend}
             autoRotateSpeed={0.012}
             scrollEase={0.06}
             onItemClick={handleItemClick}

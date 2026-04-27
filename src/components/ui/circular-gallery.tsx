@@ -337,6 +337,8 @@ class App {
   scroll: { ease: number; current: number; target: number; last: number; position?: number };
   isInteracting: boolean = false;
   interactTimer?: ReturnType<typeof setTimeout>;
+  startY: number = 0;
+  directionLocked: "h" | "v" | null = null;
   onItemClick?: (index: number) => void;
   originalLength: number = 0;
   renderer!: Renderer;
@@ -423,15 +425,27 @@ class App {
   }
 
   onTouchDown(e: MouseEvent | TouchEvent) {
-    this.isInteracting = true;
     clearTimeout(this.interactTimer);
     this.scroll.position = this.scroll.current;
     this.start = "touches" in e ? e.touches[0].clientX : (e as MouseEvent).clientX;
+    this.startY = "touches" in e ? e.touches[0].clientY : (e as MouseEvent).clientY;
+    this.directionLocked = null;
+    this.isInteracting = false;
   }
 
   onTouchMove(e: MouseEvent | TouchEvent) {
-    if (!this.isInteracting) return;
     const x = "touches" in e ? e.touches[0].clientX : (e as MouseEvent).clientX;
+    const y = "touches" in e ? e.touches[0].clientY : (e as MouseEvent).clientY;
+    const dx = Math.abs(x - this.start);
+    const dy = Math.abs(y - this.startY);
+
+    // Determine scroll direction on first significant movement
+    if (!this.directionLocked && (dx > 4 || dy > 4)) {
+      this.directionLocked = dx >= dy ? "h" : "v";
+    }
+    if (this.directionLocked !== "h") return;
+
+    this.isInteracting = true;
     const distance = (this.start - x) * 0.05;
     this.scroll.target = (this.scroll.position ?? 0) + distance;
   }
@@ -546,6 +560,7 @@ export const CircularGallery = ({
   return (
     <div
       ref={containerRef}
+      style={{ touchAction: "pan-y" }}
       className={cn(
         "w-full h-full overflow-hidden cursor-grab active:cursor-grabbing text-foreground font-semibold text-[26px]",
         fontClassName,

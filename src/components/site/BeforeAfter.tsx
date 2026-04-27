@@ -30,7 +30,7 @@ export const BeforeAfter = ({
     <div
       ref={containerRef}
       className="relative overflow-hidden select-none cursor-ew-resize"
-      style={{ height }}
+      style={{ height, touchAction: "none" }}
       onPointerDown={(e) => {
         dragging.current = true;
         (e.currentTarget as HTMLDivElement).setPointerCapture(e.pointerId);

@@ -170,5 +170,3 @@ All colors MUST be HSL.
 }
 .animate-fade-up { animation: fade-up 0.8s var(--transition-smooth) both; }
 .animate-fade-in { animation: fade-in 1.2s var(--transition-smooth) both; }
-  }
-}

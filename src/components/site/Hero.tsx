@@ -20,6 +20,9 @@ export const Hero = () => (
       <p className="mt-6 text-snow/80 text-base md:text-lg max-w-lg leading-relaxed animate-fade-up" style={{ animationDelay: "0.15s" }}>
         Din snickare i fjällen — nyproduktion, renovering och platsbyggda möbler med hantverk som syns i varje detalj.
       </p>
+      <p className="mt-3 text-snow/60 text-sm animate-fade-up" style={{ animationDelay: "0.2s" }}>
+        Certifierad kontrollansvarig (KA) enligt PBL
+      </p>
       <div className="mt-8 flex flex-wrap gap-4 animate-fade-up" style={{ animationDelay: "0.3s" }}>
         <a
           href="#kontakt"

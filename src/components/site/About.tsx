@@ -40,7 +40,14 @@ export const About = () => (
             </div>
             <div className="border-l border-border pl-8">
               <dt className="text-xs uppercase tracking-widest text-muted-foreground mb-1">Certifiering</dt>
-              <dd className="font-display text-3xl text-foreground leading-none">KA</dd>
+              <dd className="flex items-center gap-3 leading-none">
+                <span className="font-display text-3xl text-foreground">KA</span>
+                <img
+                  src="/projects/kontrollansvarig.png.png"
+                  alt="Certifierad kontrollansvarig"
+                  className="h-8 w-auto object-contain opacity-75"
+                />
+              </dd>
             </div>
           </dl>
 

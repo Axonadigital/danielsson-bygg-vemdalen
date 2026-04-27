@@ -236,14 +236,16 @@ export const Projects = () => {
 
           <button
             onClick={() => apiRef.current?.scrollPrev()}
-            className="absolute left-4 md:left-12 top-1/2 -translate-y-1/2 z-10 bg-background border border-border text-foreground p-3 shadow-card hover:bg-secondary transition-smooth"
+            onTouchEnd={(e) => { e.stopPropagation(); apiRef.current?.scrollPrev(); }}
+            className="absolute left-2 md:left-12 top-1/2 -translate-y-1/2 z-10 bg-background border border-border text-foreground p-4 md:p-3 shadow-card hover:bg-secondary transition-smooth"
             aria-label="Föregående projekt"
           >
             <ChevronLeft size={22} />
           </button>
           <button
             onClick={() => apiRef.current?.scrollNext()}
-            className="absolute right-4 md:right-12 top-1/2 -translate-y-1/2 z-10 bg-background border border-border text-foreground p-3 shadow-card hover:bg-secondary transition-smooth"
+            onTouchEnd={(e) => { e.stopPropagation(); apiRef.current?.scrollNext(); }}
+            className="absolute right-2 md:right-12 top-1/2 -translate-y-1/2 z-10 bg-background border border-border text-foreground p-4 md:p-3 shadow-card hover:bg-secondary transition-smooth"
             aria-label="Nästa projekt"
           >
             <ChevronRight size={22} />

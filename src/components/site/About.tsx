@@ -33,12 +33,19 @@ export const About = () => (
             </div>
           </dl>
 
-          <a
-            href="#kontakt"
-            className="inline-flex items-center gap-2 mt-10 bg-accent text-accent-foreground px-7 py-3.5 text-sm font-semibold uppercase tracking-wider hover:bg-accent/90 transition-smooth"
-          >
-            Begär offert
-          </a>
+          <div className="flex flex-wrap items-center gap-4 mt-10">
+            <a
+              href="#kontakt"
+              className="inline-flex items-center gap-2 bg-accent text-accent-foreground px-7 py-3.5 text-sm font-semibold uppercase tracking-wider hover:bg-accent/90 transition-smooth"
+            >
+              Begär offert
+            </a>
+            <img
+              src="/projects/kontrollansvarig.png.png"
+              alt="Certifierad kontrollansvarig"
+              className="h-12 w-auto object-contain opacity-80"
+            />
+          </div>
         </div>
 
         {/* Bild — porträttkort */}

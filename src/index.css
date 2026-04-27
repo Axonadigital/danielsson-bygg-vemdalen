@@ -27,15 +27,15 @@ All colors MUST be HSL.
     --muted: 36 15% 90%;
     --muted-foreground: 30 8% 38%;
 
-    --accent: 24 60% 45%;
-    --accent-foreground: 40 33% 97%;
+    --accent: 44 80% 50%;
+    --accent-foreground: 30 12% 10%;
 
     --destructive: 0 70% 45%;
     --destructive-foreground: 40 33% 97%;
 
     --border: 36 15% 85%;
     --input: 36 15% 85%;
-    --ring: 24 60% 45%;
+    --ring: 44 80% 50%;
 
     --radius: 0.25rem;
 
@@ -80,13 +80,13 @@ All colors MUST be HSL.
     --secondary-foreground: 40 25% 95%;
     --muted: 30 8% 18%;
     --muted-foreground: 36 10% 65%;
-    --accent: 24 60% 50%;
-    --accent-foreground: 40 33% 97%;
+    --accent: 44 80% 55%;
+    --accent-foreground: 30 12% 10%;
     --destructive: 0 62% 40%;
     --destructive-foreground: 40 25% 95%;
     --border: 30 8% 22%;
     --input: 30 8% 22%;
-    --ring: 24 60% 50%;
+    --ring: 44 80% 55%;
     /* legacy duplicate kept minimal */
     --legacy: 0 0% 0%;
   }

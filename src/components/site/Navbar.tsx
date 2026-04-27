@@ -1,5 +1,4 @@
 import { useEffect, useState } from "react";
-import logo from "@/assets/danielssons-bygg-logo.png";
 
 const links = [
   { href: "#om-oss", label: "Om oss" },
@@ -22,24 +21,21 @@ export const Navbar = () => {
   return (
     <header
       className={`fixed top-0 inset-x-0 z-50 transition-smooth ${
-        scrolled ? "bg-background/90 backdrop-blur border-b border-border" : "bg-transparent"
+        scrolled ? "bg-background/95 backdrop-blur border-b border-border" : "bg-transparent"
       }`}
     >
       <a href="#main" className="sr-only focus:not-sr-only focus:fixed focus:top-2 focus:left-2 focus:bg-primary focus:text-primary-foreground focus:px-4 focus:py-2 focus:z-[100]">
         Hoppa till innehåll
       </a>
       <nav className="container flex items-center justify-between h-20" aria-label="Huvudnavigation">
-        <a href="#top" className="flex items-center gap-3">
+        <a href="#top" className="flex items-center">
           <img
-            src={logo}
-            alt="Danielssons Bygg logotyp – snickare i Vemdalen"
-            width={48}
-            height={48}
-            className={`h-10 w-auto transition-smooth ${scrolled ? "opacity-100" : "opacity-0 invert brightness-0"}`}
+            src="/logga.png"
+            alt="Danielssons Bygg logotyp"
+            width={160}
+            height={60}
+            className={`h-12 w-auto transition-smooth ${!scrolled ? "brightness-0 invert" : ""}`}
           />
-          <span className={`font-display text-2xl tracking-wide transition-smooth ${scrolled ? "text-foreground" : "text-snow"}`}>
-            Danielssons Bygg
-          </span>
         </a>
         <ul className="hidden md:flex items-center gap-8">
           {links.map((l) => (

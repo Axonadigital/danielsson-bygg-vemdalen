@@ -1,0 +1,10 @@
+{
+  "name": "Danielssons Bygg",
+  "short_name": "Danielssons Bygg",
+  "icons": [
+    { "src": "/favicon.png", "sizes": "512x512", "type": "image/png" }
+  ],
+  "theme_color": "#1a1a1a",
+  "background_color": "#fafaf7",
+  "display": "standalone"
+}

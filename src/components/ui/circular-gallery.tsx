@@ -438,8 +438,11 @@ class App {
   }
 
   onTouchMove(e: MouseEvent | TouchEvent) {
-    const x = "touches" in e ? e.touches[0].clientX : (e as MouseEvent).clientX;
-    const y = "touches" in e ? e.touches[0].clientY : (e as MouseEvent).clientY;
+    const isTouch = "touches" in e;
+    if (isTouch && !this.touchStarted) return;
+    if (!isTouch && !this.mouseStarted) return;
+    const x = isTouch ? (e as TouchEvent).touches[0].clientX : (e as MouseEvent).clientX;
+    const y = isTouch ? (e as TouchEvent).touches[0].clientY : (e as MouseEvent).clientY;
     const dx = Math.abs(x - this.start);
     const dy = Math.abs(y - this.startY);
 

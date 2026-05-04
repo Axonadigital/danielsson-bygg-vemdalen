@@ -1,7 +1,7 @@
 export const About = () => (
   <section id="om-oss" className="py-20 md:py-28 bg-secondary overflow-hidden">
     <div className="container">
-      <div className="grid md:grid-cols-2 gap-12 lg:gap-20 items-center">
+      <div className="max-w-2xl">
 
         {/* Text */}
         <div>
@@ -40,22 +40,6 @@ export const About = () => (
             >
               Begär offert
             </a>
-          </div>
-        </div>
-
-        {/* Bild — porträttkort */}
-        <div className="relative mx-auto w-full max-w-sm md:max-w-none">
-          <div className="relative overflow-hidden shadow-elegant" style={{ aspectRatio: "4/3" }}>
-            <img
-              src="/om-oss.jpg"
-              alt="Niklas Danielsson, Danielssons Bygg"
-              loading="lazy"
-              className="w-full h-full object-cover object-top"
-            />
-            <div className="absolute bottom-0 left-0 right-0 px-7 py-6 bg-gradient-to-t from-black/75 to-transparent pt-16">
-              <p className="font-display text-2xl text-snow leading-none">Niklas Danielsson</p>
-              <p className="text-snow/60 text-sm mt-1">Grundare &amp; snickarmästare</p>
-            </div>
           </div>
         </div>
 

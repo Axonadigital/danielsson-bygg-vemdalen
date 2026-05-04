@@ -6,12 +6,12 @@ const services: Service[] = [
   {
     title: "Nyproduktion",
     desc: "Vi bygger nya fjällstugor, villor och fritidshus från grund till nyckelfärdigt — anpassade för fjällklimatet i Vemdalen och Jämtland.",
-    img: "/projects/nybyggnation.webp",
+    img: "/projects/tillbyggnad.webp",
   },
   {
     title: "Om- & tillbyggnad",
     desc: "Bygg ut, bygg om eller renovera. Vi hjälper dig förvandla befintliga ytor till något bättre — med varsamhet och precision.",
-    img: "/projects/tillbyggnad.webp",
+    img: "/projects/tillbyggnad-ny.jpg",
   },
   {
     title: "Trall & altan",

@@ -262,7 +262,7 @@ export const Projects = () => {
             Före &amp; efter — Dra för att se
           </p>
           <BeforeAfter
-            before="/projects/takbyte/fore.jpg"
+            before="/projects/takbyte/1.jpg"
             after="/projects/takbyte/efter.jpg"
             height={320}
           />

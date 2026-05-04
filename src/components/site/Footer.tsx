@@ -83,7 +83,7 @@ export const Footer = () => (
           <img
             src="/axona-logo.png"
             alt="Axona Digital"
-            className="h-4 w-auto opacity-30 group-hover:opacity-60 transition-smooth brightness-0 invert"
+            className="h-14 w-auto opacity-30 group-hover:opacity-60 transition-smooth brightness-0 invert"
           />
         </a>
       </div>

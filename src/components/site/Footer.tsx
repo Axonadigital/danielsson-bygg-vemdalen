@@ -71,6 +71,22 @@ export const Footer = () => (
         <p>© {new Date().getFullYear()} Nicke Danielssons Bygg AB · Org.nr 559317-6570</p>
         <p>Vemdalen, Härjedalen</p>
       </div>
+
+      <div className="mt-6 flex justify-center">
+        <a
+          href="https://axonadigital.se"
+          target="_blank"
+          rel="noreferrer noopener"
+          className="group flex items-center gap-2 text-snow/30 hover:text-snow/60 transition-smooth text-xs"
+        >
+          Skapad av
+          <img
+            src="/axona-logo.png"
+            alt="Axona Digital"
+            className="h-4 w-auto opacity-30 group-hover:opacity-60 transition-smooth brightness-0 invert"
+          />
+        </a>
+      </div>
     </div>
   </footer>
 );

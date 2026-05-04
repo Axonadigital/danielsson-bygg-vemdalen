@@ -39,20 +39,6 @@ export const Contact = () => (
             <p className="text-xs uppercase tracking-[0.3em] text-muted-foreground mb-2">Kontaktperson</p>
             <p className="text-xl text-foreground">Niklas Danielsson</p>
           </div>
-          <div className="border-t border-border py-6">
-            <p className="text-xs uppercase tracking-[0.3em] text-muted-foreground mb-3">Certifieringar</p>
-            <div className="flex items-center gap-4">
-              <img
-                src="/projects/kontrollansvarig.png.png"
-                alt="Certifierad kontrollansvarig"
-                className="h-12 w-auto object-contain opacity-80 flex-shrink-0"
-              />
-              <p className="text-sm text-muted-foreground leading-snug">
-                Niklas är certifierad kontrollansvarig (KA) enligt PBL och kan axla rollen som
-                er KA vid bygglov och bygganmälan.
-              </p>
-            </div>
-          </div>
           <div className="border-t border-border pt-6">
             <a
               href="tel:+46768292821"

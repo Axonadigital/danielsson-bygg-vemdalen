@@ -20,16 +20,9 @@ export const About = () => (
               Vi tror på personliga relationer, ärlig kommunikation och hantverk som håller —
               från första skiss till sista skruv.
             </p>
-            <p>
-              Niklas är{" "}
-              <strong className="text-foreground">certifierad kontrollansvarig (KA)</strong>{" "}
-              enligt PBL, vilket innebär att han kan ansvara för kontrollplanen och vara er
-              kontaktpunkt mot byggnadsnämnden — ett tryggt steg för både nybyggnation och
-              större ombyggnader.
-            </p>
           </div>
 
-          <dl className="flex flex-wrap gap-8 mt-10 pt-8 border-t border-border">
+          <dl className="flex gap-8 mt-10 pt-8 border-t border-border">
             <div>
               <dt className="text-xs uppercase tracking-widest text-muted-foreground mb-1">Bas</dt>
               <dd className="font-display text-3xl text-foreground leading-none">Vemdalen</dd>
@@ -37,17 +30,6 @@ export const About = () => (
             <div className="border-l border-border pl-8">
               <dt className="text-xs uppercase tracking-widest text-muted-foreground mb-1">Område</dt>
               <dd className="font-display text-3xl text-foreground leading-none">Jämtland</dd>
-            </div>
-            <div className="border-l border-border pl-8">
-              <dt className="text-xs uppercase tracking-widest text-muted-foreground mb-1">Certifiering</dt>
-              <dd className="flex items-center gap-3 leading-none">
-                <span className="font-display text-3xl text-foreground">KA</span>
-                <img
-                  src="/projects/kontrollansvarig.png.png"
-                  alt="Certifierad kontrollansvarig"
-                  className="h-8 w-auto object-contain opacity-75"
-                />
-              </dd>
             </div>
           </dl>
 

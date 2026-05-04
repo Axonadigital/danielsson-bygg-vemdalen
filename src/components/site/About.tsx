@@ -44,7 +44,7 @@ export const About = () => (
         </div>
 
         {/* Fjällbild */}
-        <div className="relative overflow-hidden shadow-elegant" style={{ aspectRatio: "4/5" }}>
+        <div className="relative overflow-hidden shadow-elegant mx-auto w-full max-w-sm md:max-w-none" style={{ aspectRatio: "4/3" }}>
           <img
             src="/fjallbild.jpg"
             alt="Fjällen i Vemdalen och Härjedalen"

@@ -1,8 +1,10 @@
 {
   "name": "Danielssons Bygg",
   "short_name": "Danielssons Bygg",
+  "start_url": "/",
   "icons": [
-    { "src": "/favicon.png", "sizes": "512x512", "type": "image/png" }
+    { "src": "/favicon.png", "sizes": "64x64", "type": "image/png" },
+    { "src": "/apple-touch-icon.png", "sizes": "180x180", "type": "image/png" }
   ],
   "theme_color": "#1a1a1a",
   "background_color": "#fafaf7",

@@ -29,7 +29,7 @@ export const About = () => (
             </div>
             <div className="border-l border-border pl-8">
               <dt className="text-xs uppercase tracking-widest text-muted-foreground mb-1">Område</dt>
-              <dd className="font-display text-3xl text-foreground leading-none">Jämtland</dd>
+              <dd className="font-display text-3xl text-foreground leading-none">Jämtland/Härjedalen</dd>
             </div>
           </dl>
 

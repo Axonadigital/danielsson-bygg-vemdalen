@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-type Service = { title: string; desc: string; img: string };
+type Service = { title: string; desc: string; img: string; img2?: string };
 
 const services: Service[] = [
   {
@@ -29,9 +29,10 @@ const services: Service[] = [
     img: "/projects/takbyte/4.jpg",
   },
   {
-    title: "Platsbyggda möbler",
+    title: "Kök & platsbyggda möbler",
     desc: "Skräddarsydda hyllor, bänkar, garderober och kök. Möbler som passar precis i ditt rum och håller livet ut.",
     img: "/projects/atlan/mobler.jpg",
+    img2: "/platsbyggda-mobler.jpg",
   },
 ];
 
@@ -77,6 +78,78 @@ const ServiceModal = ({ service, onClose }: { service: Service; onClose: () => v
   </div>
 );
 
+const SplitCard = ({ s, onClick }: { s: Service; onClick: () => void }) => {
+  const [hovered, setHovered] = useState<"left" | "right" | null>(null);
+
+  const leftW = hovered === "right" ? "25%" : hovered === "left" ? "75%" : "60%";
+  const rightW = hovered === "left" ? "25%" : hovered === "right" ? "75%" : "40%";
+
+  return (
+    <article
+      className="relative overflow-hidden bg-secondary cursor-pointer"
+      style={{ minHeight: "300px" }}
+      onClick={onClick}
+    >
+      {/* Vänster panel – kök */}
+      <div
+        className="absolute inset-y-0 left-0 bg-cover bg-center transition-all duration-500 ease-in-out"
+        style={{ width: leftW, backgroundImage: `url(${s.img})` }}
+        onMouseEnter={() => setHovered("left")}
+        onMouseLeave={() => setHovered(null)}
+      >
+        <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-black/10" />
+        <div className="absolute top-4 left-4 z-10">
+          <span className="px-2 py-1 bg-black/60 text-white/90 text-xs uppercase tracking-widest backdrop-blur-sm">
+            Kök
+          </span>
+        </div>
+      </div>
+
+      {/* Avdelare */}
+      <div
+        className="absolute inset-y-0 z-20 flex items-center justify-center transition-all duration-500 ease-in-out"
+        style={{ left: leftW, transform: "translateX(-50%)" }}
+      >
+        <div className="w-px h-full bg-white/50 absolute" />
+        <div className="relative z-10 w-7 h-7 rounded-full bg-white/20 backdrop-blur-sm border border-white/40 flex items-center justify-center">
+          <span className="text-white text-xs font-light">↔</span>
+        </div>
+      </div>
+
+      {/* Höger panel – platsbyggda möbler */}
+      <div
+        className="absolute inset-y-0 right-0 bg-cover bg-center transition-all duration-500 ease-in-out"
+        style={{ width: rightW, backgroundImage: `url(${s.img2})` }}
+        onMouseEnter={() => setHovered("right")}
+        onMouseLeave={() => setHovered(null)}
+      >
+        <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-black/10" />
+        <div className="absolute top-4 right-4 z-10">
+          <span className="px-2 py-1 bg-black/60 text-white/90 text-xs uppercase tracking-widest backdrop-blur-sm">
+            Möbler
+          </span>
+        </div>
+      </div>
+
+      {/* Rubrik och länk längst ner */}
+      <div
+        className="absolute inset-x-0 bottom-0 z-30 p-7 pointer-events-none"
+        onMouseEnter={() => setHovered(null)}
+      >
+        <h3 className="font-display text-4xl text-white leading-none mb-3 drop-shadow-lg">
+          {s.title}
+        </h3>
+        <div className="flex items-center justify-between">
+          <div className="h-px bg-accent w-6" />
+          <span className="text-white/70 text-xs uppercase tracking-widest drop-shadow-md">
+            Läs mer
+          </span>
+        </div>
+      </div>
+    </article>
+  );
+};
+
 export const Services = () => {
   const [selected, setSelected] = useState<Service | null>(null);
 
@@ -91,37 +164,36 @@ export const Services = () => {
         </div>
 
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-px bg-border">
-          {services.map((s) => (
-            <article
-              key={s.title}
-              className="group relative overflow-hidden bg-secondary cursor-pointer"
-              style={{ minHeight: "300px" }}
-              onClick={() => setSelected(s)}
-            >
-              {/* Bild */}
-              <div
-                className="absolute inset-0 bg-cover bg-center transition-all duration-700 group-hover:scale-105"
-                style={{ backgroundImage: `url(${s.img})` }}
-              />
-              {/* Gradient – stark nertill för läsbar text */}
-              <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-black/10 transition-smooth group-hover:from-black/95 group-hover:via-black/50" />
-
-              {/* Text – sitter längst ner */}
-              <div className="relative z-10 p-7 flex flex-col justify-end" style={{ minHeight: "300px" }}>
-                <h3 className="font-display text-4xl text-white leading-none mb-2 drop-shadow-lg">{s.title}</h3>
-                {/* Beskrivning glider in vid hover */}
-                <p className="text-white/95 text-sm leading-relaxed overflow-hidden max-h-0 group-hover:max-h-24 transition-all duration-500 mb-0 group-hover:mb-4 drop-shadow-md">
-                  {s.desc}
-                </p>
-                <div className="flex items-center justify-between mt-3">
-                  <div className="h-px bg-accent w-6 group-hover:w-14 transition-all duration-500" />
-                  <span className="text-white/70 group-hover:text-accent text-xs uppercase tracking-widest transition-smooth drop-shadow-md">
-                    Läs mer
-                  </span>
+          {services.map((s) =>
+            s.img2 ? (
+              <SplitCard key={s.title} s={s} onClick={() => setSelected(s)} />
+            ) : (
+              <article
+                key={s.title}
+                className="group relative overflow-hidden bg-secondary cursor-pointer"
+                style={{ minHeight: "300px" }}
+                onClick={() => setSelected(s)}
+              >
+                <div
+                  className="absolute inset-0 bg-cover bg-center transition-all duration-700 group-hover:scale-105"
+                  style={{ backgroundImage: `url(${s.img})` }}
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-black/10 transition-smooth group-hover:from-black/95 group-hover:via-black/50" />
+                <div className="relative z-10 p-7 flex flex-col justify-end" style={{ minHeight: "300px" }}>
+                  <h3 className="font-display text-4xl text-white leading-none mb-2 drop-shadow-lg">{s.title}</h3>
+                  <p className="text-white/95 text-sm leading-relaxed overflow-hidden max-h-0 group-hover:max-h-24 transition-all duration-500 mb-0 group-hover:mb-4 drop-shadow-md">
+                    {s.desc}
+                  </p>
+                  <div className="flex items-center justify-between mt-3">
+                    <div className="h-px bg-accent w-6 group-hover:w-14 transition-all duration-500" />
+                    <span className="text-white/70 group-hover:text-accent text-xs uppercase tracking-widest transition-smooth drop-shadow-md">
+                      Läs mer
+                    </span>
+                  </div>
                 </div>
-              </div>
-            </article>
-          ))}
+              </article>
+            )
+          )}
         </div>
       </div>
 

@@ -25,6 +25,15 @@ export const Contact = () => (
             </a>
           </div>
           <div className="border-t border-border py-6">
+            <p className="text-xs uppercase tracking-[0.3em] text-muted-foreground mb-2">E-post</p>
+            <a
+              href="mailto:danielssonsbygg@hotmail.com"
+              className="font-display text-2xl sm:text-3xl text-foreground hover:text-accent transition-smooth block break-all"
+            >
+              danielssonsbygg@hotmail.com
+            </a>
+          </div>
+          <div className="border-t border-border py-6">
             <p className="text-xs uppercase tracking-[0.3em] text-muted-foreground mb-2">Adress</p>
             <p className="text-xl text-foreground">
               Norrmalmsgatan 20<br />
